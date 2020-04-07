@@ -1,0 +1,42 @@
+.Dd 17/04/20               \" DATE
+.Dt Untitled 1      \" Program name and manual section number
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm Untitled,
+
+
+.TH SIMPLE_SHELL
+
+.Sh NAME
+SIMPLE_SHELL \ - execute commands in linux
+
+.Sh SYNOPSIS
+
+.B simple_shell
+
+#include "holberton.h"
+#include <stdarg.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+simple_shell[-acefhikmnprstuvx] [arg] ...;
+
+.Sh Description
+
+Sh is a command programming language that executes commands read from a terminal
+
+example:
+
+Sh #cisfun$ /bin/ls -l
+
+env-environ.c  exec    fork    mypid  ppid    printenv  promptc   shell    wait
+env-main.c     exec.c  fork.c  pid.c  ppid.c  prompt    prompt.c  shell.c  wait.c
+
+
+.Sh commands
+
+A simple-command is a sequence of non blank words separated by blanks (a blank is a tab or a space). The first word specifies the name of the command to be executed. Except as specified below the remaining words are passed as arguments to the invoked command
