@@ -1,46 +1,36 @@
 #!/usr/bin/python3
 import uuid
-#import models
+import models
 from datetime import datetime
 
 
-""" 
+"""
     BaseClass
 """
 
 
 class BaseModel:
-    """     
+    """
         that defines all common attributes/methods for other classes
     """
-    def __init__(self, ):
-        """     
-            initializes BaseModel class 
+    def __init__(self):
         """
-        """ name = 
-        id = str
-        created_at = ()
-        updated_at = ()"""
+            initializes BaseModel class
+        """
 
-        """self.name = name"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
-
-        """self.id = uuid.uuid4()
-        created_at = datetime.now()
-        updated_at = datetime.now()"""
 
     def __str__(self):
         """
             returns a string representation of the class
         """
         return ("[{}] ({}) {}".format(type(self).__name__,
-                                        self.id, self.__dict__))
+                                      self.id, self.__dict__))
 
-
-    def save(self): 
-        """ 
+    def save(self):
+        """
             updates 'uṕdated_at' with the current datetime
         """
         self.updated_at = datetime.now()
