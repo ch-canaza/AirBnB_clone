@@ -13,7 +13,6 @@ class FileStorage:
         serializes instances to a JSON file and
         deserializes JSON file to instances:
     """
-
     __file_path = "file.json"
     __objects = {}
 
@@ -44,14 +43,14 @@ class FileStorage:
 
     def reload(self):
         '''
-            deserializes the JSON file stored in file.json
+        deserializes the JSON file
         '''
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as f:
-                objects_to_load = json.load(f)
-                for k, v in objects_to_load.items():
-                    reloaded_obj = eval('{}(**v)'.format(v['__class__']))
-                    self.__objects[k] = reloaded_obj
+                newobjects = json.load(f)
+                for k, v in newobjects.items():
+                    reloadedobj = eval('{}(**v)'.format(v['__class__']))
+                    self.__objects[k] = reloadedobj
 
         except IOError:
             pass
