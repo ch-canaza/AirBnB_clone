@@ -116,7 +116,30 @@ Prints all string representation of all instances based or not on the class name
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
-#EXAMPLE FOR DESTROY#
+#EXAMPLE TO DESTROY#
+
+destroy: Deletes an instance based on the class name 
+and id (save the change into the JSON file). Ex: $ 
+destroy BaseModel 1234-1234-1234.
+
+
+(hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+** no instance found **
+(hbnb) 
+
+#EXAMPLE TO UPDATE#
+
+update: Updates an instance based on the class name 
+and id by adding or updating attribute (save the change 
+into the JSON file). Ex: $ update BaseModel 1234-1234-1234 
+email "aibnb@holbertonschool.com".
+
+(hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
+
+
 
 
 
