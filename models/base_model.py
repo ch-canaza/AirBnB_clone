@@ -4,7 +4,7 @@ from datetime import datetime
 import models
 
 """
-    BaseClass
+    BaseClass manage all program
 """
 
 
