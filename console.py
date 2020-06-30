@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
     contains the entry point of the command interpreter:
 """
 import cmd
@@ -8,8 +8,9 @@ from models.engine.file_storage import FileStorage
 from models import storage
 import json
 
+
 class HBNBCommand(cmd.Cmd):
-    """  
+    """
         command interprete
     """
 
@@ -60,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line_args):
         """
             Prints the stringrepresentation of an instance
-            based on the class name and id        
+            based on the class name and id
         """
         args = line_args.split()
         if len(args) == 0:
@@ -105,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line_args):
-        """ 
+        """
             Prints all string representation
             of all instances based or not on the class name
         """
@@ -129,7 +130,8 @@ class HBNBCommand(cmd.Cmd):
         def do_update(self, line_args):
             """
                 Updates an instance based on the class name and id
-                by adding or updating attribute (save the change into the JSON file).
+                by adding or updating attribute (save the change
+                into the JSON file).
             """
             element = 0
 
@@ -143,7 +145,7 @@ class HBNBCommand(cmd.Cmd):
             except IndexError:
                 print("** class doesn\'t exist **")
                 return False
-            
+
             try:
                 instance_id = line_args.split()[1]
             except IndexError:
@@ -152,7 +154,8 @@ class HBNBCommand(cmd.Cmd):
 
             my_objects = storage.all()
             try:
-                class_instance = my_objects["{}.{}".format(class_name, instance_id)]
+                class_instance = my_objects["{}.{}".format(class_name,
+                                                           instance_id)]
             except IndexError:
                 print("** no instance found **")
                 return False
@@ -173,10 +176,10 @@ class HBNBCommand(cmd.Cmd):
                 setattr(class_instance, attribute_name, int(attr_value))
                 storage.save()
             else:
-                try:
+                if line_args:
                     setattr(class_instance, attribute_name, float(attr_value))
                     storage.save()
-                except:
+                else:
                     setattr(class_instance, attribute_name, str(attr_value))
                     storage.save()
 
