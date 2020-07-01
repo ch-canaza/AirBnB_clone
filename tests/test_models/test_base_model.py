@@ -48,3 +48,20 @@ class TestBase_Model(unittest.TestCase):
                 self.assertIsInstance(value, str)
             if key == 'update_at':
                 self.assertIsInstance(value, str)"""
+
+    def test_to_dict(self):
+        """ testing to_dict method from BaseModel class """
+
+        to_dict = self.base1.to_dict()
+        """ testing if the return value of to dict method is dict """
+        self.assertIsInstance(to_dict, dict)
+
+        """ testing the keys of the to_dict dictionary """
+        self.assertIsInstance(to_dict['id'], str)
+        self.assertIsInstance(to_dict['created_at'], str)
+        self.assertIsInstance(to_dict['updated_at'], str)
+        self.assertIsInstance(to_dict['name'], str)
+        self.assertIsInstance(to_dict['number'], int)
+
+        self.assertEqual(to_dict['name'], "Lorem ipsum")
+        self.assertEqual(to_dict['number'], 777)
