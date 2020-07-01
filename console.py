@@ -134,61 +134,40 @@ class HBNBCommand(cmd.Cmd):
                     print(args_as_str)
         return False
 
-        def do_update(self, line_args):
-            """
-                Updates an instance based on the class name and id
-                by adding or updating attribute (save the change
-                into the JSON file).
-            """
-            element = 0
-
-            if len(line_args) == 0:
-                print("** class name missing **")
-                return False
-
-            try:
-                class_name = line_args.split()[0]
-                eval("{}()".format(class_name))
-            except IndexError:
-                print("** class doesn\'t exist **")
-                return False
-
-            try:
-                instance_id = line_args.split()[1]
-            except IndexError:
-                print("** instance id missing **")
-                return False
-
-            my_objects = storage.all()
-            try:
-                class_instance = my_objects["{}.{}".format(class_name,
-                                                           instance_id)]
-            except IndexError:
+    def do_update(self, line_args):
+        """
+            Updates an instance based on the class name and id
+            by adding or updating attribute (save the change
+            into the JSON file).
+        """
+        args = line_args.split()
+        counter = 0
+        if len(args) < 1:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.my_classes:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print("** instance id missing **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        elif len(args) < 4:
+            print("** value missing **")
+        else:
+            element = (args[0] + "." + args[1])
+            for key, obj in storage.all().items():
+                if key == element:
+                    idx_arg = len(args[0]) + len(args[1]) + len(args[2]) + 3
+                    value = args[idx_arg:]
+                    if args[idx_arg] == "\"":
+                        idx_arg += 1
+                        value = args[idx_arg:-1]
+                    if hasattr(obj, arg[2]):
+                        value = type(getattr(obj, args[2]))(args[idx_arg:])
+                    setattr(obj, args[2], value)
+                    counter = 1
+                    storage.save()
+            if counter == 0:
                 print("** no instance found **")
-                return False
-
-            try:
-                attribute_name = line_args.split()[2]
-            except IndexError:
-                print("** attribute name missing **")
-                return False
-
-            try:
-                attr_value = line_args.split()[3]
-            except IndexError:
-                print("** value missing **")
-                return False
-
-            if attr_value.isdecimal() is True:
-                setattr(class_instance, attribute_name, int(attr_value))
-                storage.save()
-            else:
-                if line_args:
-                    setattr(class_instance, attribute_name, float(attr_value))
-                    storage.save()
-                else:
-                    setattr(class_instance, attribute_name, str(attr_value))
-                    storage.save()
 
 
 if __name__ == '__main__':
