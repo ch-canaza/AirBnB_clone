@@ -18,6 +18,11 @@ from models.amenity import Amenity
 from models.review import Review
 
 
+class_name = {"BaseModel": BaseModel, "User": User,
+              "Place": Place, "City": City,
+              "Amenity": Amenity, "State": State,
+              "Review": Review}
+instance = None
 
 
 class HBNBCommand(cmd.Cmd):
