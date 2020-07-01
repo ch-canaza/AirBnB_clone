@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test for file storage"""
 import models
 from models.place import Place
 import os

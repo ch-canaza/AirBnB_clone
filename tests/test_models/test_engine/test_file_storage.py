@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test for file storage"""
 import models
 from models.engine.file_storage import FileStorage
 import os

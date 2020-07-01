@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test for file storage"""
 import models
 from models.user import User
 import os

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Test for file storage"""
 import models
 from models.city import City
 import os
