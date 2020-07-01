@@ -21,13 +21,13 @@ class TestUser(unittest.TestCase):
 
     def test_executable_file(self):
         '''test if file has permissions u+x to executable'''
-        #Check for read access
+
         is_read_true = os.access('models/user.py', os.R_OK)
         self.assertTrue(is_read_true)
-        #check for write access
+
         is_write_true = os.access('models/user.py', os.W_OK)
         self.assertTrue(is_write_true)
-        #Check for execution access
+
         is_exec_true = os.access('models/user.py', os.X_OK)
         self.assertTrue(is_exec_true)
 

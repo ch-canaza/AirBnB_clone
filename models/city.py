@@ -6,9 +6,10 @@ class that inherits from BaseModel
 
 from models.base_model import BaseModel
 
+
 class City(BaseModel):
     """
-    clas containing cities
+    class containing cities
     """
 
     state_id = ""
