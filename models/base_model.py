@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """create class base"""
-import uuid import uuid4
+from uuid import uuid4
 from datetime import datetime
 import models
 
