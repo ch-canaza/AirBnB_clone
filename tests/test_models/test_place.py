@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import models
 from models.place import Place
 import os

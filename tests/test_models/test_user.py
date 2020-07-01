@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import models
 from models.user import User
 import os

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import models
 from models.state import State
 import os
