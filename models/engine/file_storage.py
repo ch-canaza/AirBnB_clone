@@ -36,7 +36,7 @@ class FileStorage:
              serializes __objects to the JSON file (path: __file_path)
         """
         dic_to_store = {}
-        for key_id, objs in self.__objects.items():
+        for key_id, objs in self.__objects.items():  # test
             dic_to_store[key_id] = objs.to_dict()
         with open(self.__file_path, mode="w", encoding="UTF-8") as f:
             json.dump(dic_to_store, f)
