@@ -4,6 +4,8 @@ class that inherits from BaseModel
 """
 
 
+from models.base_model import BaseModel
+
 class Review(BaseModel):
     """
     class comntaining Reviews
