@@ -8,17 +8,16 @@ import unittest
 
 class TestFile_Storage(unittest.TestCase):
     """we start the test"""
-    
-    
+
     def test_docstring(self):
         '''test if function, methods, classes and modules have doc
         string'''
         msj = "Module doesnt have docstring"
         obj = models.engine.file_storage.__doc__
-        self.assertIsNotNone(obj, msj) # Modules
+        self.assertIsNotNone(obj, msj)  # Modules
         msj = "Classes doesnt have docstring"
-        self.assertIsNotNone(obj, msj) # Classes
-        
+        self.assertIsNotNone(obj, msj)  # Classes
+
     def test_executable_file(self):
         '''test if file has permissions u+x to executable'''
         #Check for read access
@@ -30,7 +29,7 @@ class TestFile_Storage(unittest.TestCase):
         #Check for execution access
         is_exec_true = os.access('models/engine/file_storage.py', os.X_OK)
         self.assertTrue(is_exec_true)
-        
+
     def test_is_an_instance(self):
         '''check if my_models is an instance of BaseModel'''
         my_model = FileStorage()
